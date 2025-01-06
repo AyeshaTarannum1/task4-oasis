@@ -1,4 +1,7 @@
-task4
+
+
+https://github.com/user-attachments/assets/216f5e05-dd48-4036-8669-fa6fb5666f84
+task-4
     //import required classes and packages  
 import javax.swing.*;  
 import java.awt.*;  
@@ -6,9 +9,7 @@ import java.awt.event.*;
 import java.lang.Exception; 
 import java.util.Timer;
 import java.util.TimerTask; 
-  
-  
-//create CreateLoginForm class to create login form  
+  //create CreateLoginForm class to create login form  
 //class extends JFrame to create a window where our component add  
 //class implements ActionListener to perform an action on button click  
 class login extends JFrame implements ActionListener  
@@ -18,86 +19,65 @@ class login extends JFrame implements ActionListener
     JPanel newPanel;  
     JLabel userLabel, passLabel;  
     final JTextField  textField1, textField2;  
-      
-    //calling constructor  
+         //calling constructor  
     login()  
     {     
-          
-        //create label for username   
+              //create label for username   
         userLabel = new JLabel();  
         userLabel.setText("Username");      //set label value for textField1  
-          
-        //create text field to get username from the user  
+               //create text field to get username from the user  
         textField1 = new JTextField(20);    //set length of the text  
-  
-        //create label for password  
-        passLabel = new JLabel();  
+     //create label for password  
+  passLabel = new JLabel();  
         passLabel.setText("Password");      //set label value for textField2  
-          
-        //create text field to get password from the user  
+         //create text field to get password from the user  
         textField2 = new JPasswordField(20);    //set length for the password  
-          
-        //create submit button  
+             //create submit button  
         b1 = new JButton("submit"); //set label to button  
-          
-        //create panel to put form elements  
+               //create panel to put form elements  
         newPanel = new JPanel(new GridLayout(5, 3));  
         newPanel.add(userLabel);    //set username label to panel  
         newPanel.add(textField1);   //set text field to panel  
         newPanel.add(passLabel);    //set password label to panel  
         newPanel.add(textField2);   //set text field to panel  
         newPanel.add(b1);           //set button to panel  
-          
-        //set border to panel   
+              //set border to panel   
         add(newPanel, BorderLayout.CENTER);  
-          
-        //perform action on button click   
+               //perform action on button click   
         b1.addActionListener(this);     //add action listener to button  
         setTitle("LOGIN FORM FOR TEST");         //set title to the login form  
     }  
-      
-    //define abstract method actionPerformed() which will be called on button click   
+        //define abstract method actionPerformed() which will be called on button click   
     public void actionPerformed(ActionEvent ae)     //pass action listener as a parameter  
     {  
         String userValue = textField1.getText();        //get user entered username from the textField1  
         String passValue = textField2.getText();        //get user entered pasword from the textField2  
-       
-    
-        if(!passValue.equals(""))
+           if(!passValue.equals(""))
             new OnlineTestBegin(userValue); 
         else{
             textField2.setText("Enter Password");
             actionPerformed(ae);
         }
-    }
-        
+    }        
 }  
-
- 
 
 class OnlineTestBegin extends JFrame implements ActionListener  
 {  
     JLabel l;  
-    JLabel l1;
-     
-    
+    JLabel l1;  
     JRadioButton jb[]=new JRadioButton[8];  
     JButton b1,b2,log;  
     ButtonGroup bg;  
     int count=0,current=0,x=1,y=1,now=0;  
     int m[]=new int[10];  
     Timer timer = new Timer();
-    
-   
-    OnlineTestBegin(String s)  
+       OnlineTestBegin(String s)  
     {  
-        
-        super(s); 
+             super(s); 
         //countdown(); 
         l=new JLabel();
         l1 = new JLabel();  
-        
-        add(l);
+           add(l);
         add(l1);  
         bg=new ButtonGroup();  
         for(int i=0;i<5;i++)  
@@ -118,35 +98,28 @@ class OnlineTestBegin extends JFrame implements ActionListener
         jb[1].setBounds(60,110,100,30);  
         jb[2].setBounds(60,140,100,30);  
         jb[3].setBounds(60,170,100,30);
-         
-        b1.setBounds(85,230,130,30);  
+              b1.setBounds(85,230,130,30);  
         b2.setBounds(260,230,150,30);  
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
         setLayout(null);  
         setLocation(350,100);  
         setVisible(true);  
         setSize(700,350);  
-        
-        timer.scheduleAtFixedRate(new TimerTask() {
+           timer.scheduleAtFixedRate(new TimerTask() {
             int i = 80;
-    
-            public void run() {
-    
+     public void run() 
                 l1.setText("Time left: " + i);
                 i--;
-    
-                if (i < 0) {
+             if (i < 0) {
                     timer.cancel();
                     l1.setText("Time Over");
                 }
             }
         }, 0, 1000);    
-       
-    }  
+        }  
     public void actionPerformed(ActionEvent e)  
     {   
-        
-        if(e.getSource()==b1)  
+                if(e.getSource()==b1)  
         {  
             if(check())  
                 count=count+1;  
@@ -171,10 +144,7 @@ class OnlineTestBegin extends JFrame implements ActionListener
             if(current==9)  
                 b2.setText("Result");  
             setVisible(false);  
-              
-
-
-        for(int i=0,y=1;i<x;i++,y++)  
+                  for(int i=0,y=1;i<x;i++,y++)  
         {  
         if(e.getActionCommand().equals("Review"+y))  
         {  
@@ -187,8 +157,7 @@ class OnlineTestBegin extends JFrame implements ActionListener
             current=now;  
         }  
         }  
-      
-        if(e.getActionCommand().equals("Result"))  
+           if(e.getActionCommand().equals("Result"))  
         {  
             if(check())  
                 count=count+1;  
